@@ -2,7 +2,10 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { PassengerDTO } from './dto/passenger.dto';
 import { IPassenger } from '../common/interface/passenger.interface';
 import { PassengerService } from './passenger.service';
+import { ApiTags } from '@nestjs/swagger';
+import { PASSENGER } from 'src/common/models/models';
 
+@ApiTags(PASSENGER.name)
 @Controller('api/v1/passenger')
 export class PassengerController {
 

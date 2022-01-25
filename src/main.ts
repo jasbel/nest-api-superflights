@@ -11,15 +11,20 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TimeOutInterceptor());
   app.useGlobalPipes(new ValidationPipe());
 
+  /* Configuracion Swagger */
   const options = new DocumentBuilder()
     .setTitle('SuperFligth API')
-    .setDescription('App de vuelos progamados')
+    .setDescription('App de vuelos programados')
     .setVersion('1.0.0')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
 
-  SwaggerModule.setup('/api/docs', app, document)
+  SwaggerModule.setup('/api/docs', app, document, {
+    swaggerOptions: {
+      filter: true, // aniadir buscador
+    }
+  })
 
   await app.listen(3000);
 }

@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { PassengerModule } from './passenger/passenger.module';
 import { FlightModule } from './flight/flight.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -14,7 +15,7 @@ import { FlightModule } from './flight/flight.module';
   }), MongooseModule.forRoot(process.env.URI_MONGODB, {
     // useCreateIndex: true,
     // useFindAndModify: false,
-  }), UserModule, PassengerModule, FlightModule
+  }), UserModule, PassengerModule, FlightModule, AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

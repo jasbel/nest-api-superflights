@@ -16,6 +16,7 @@ async function bootstrap() {
     .setTitle('SuperFligth API')
     .setDescription('App de vuelos programados')
     .setVersion('1.0.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
